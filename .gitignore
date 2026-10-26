@@ -235,3 +235,7 @@ mlruns/
 .env
 .env.*
 !.env.example
+
+# macOS system files
+.DS_Store
+**/.DS_Store
