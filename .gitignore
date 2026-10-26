@@ -218,3 +218,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+
+# Project datasets
+data/raw/
+data/processed/
+
+# Saved trained models
+models/
+
+# MLflow local experiment files
+mlruns/
+
+# Local environment secrets
+.env
+.env.*
+!.env.example
