@@ -134,13 +134,40 @@ print(
     (full_missing_summary["Missing_Percentage"]==0).sum()
 )
         
-    
+# Missing Values by fraud Class :
+
+class_data = pd.read_csv(
+    file_path,
+    usecols=["isFraud","dist2"]
+)
+
+print("\n Missing dist2 percentage by fraud class:")
+
+class_data["dist2_missing"] = class_data["dist2"].isnull()
+
+print(
+    class_data.groupby("isFraud")["dist2_missing"].mean()*100
+)
    
+#Fraud percentage when dist2 is missing
 
-  
+missing_dist2 = class_data[class_data["dist2_missing"]==True]
 
+fraud_percentage = (
+    missing_dist2["isFraud"].mean()*100
+)  
 
+print("\n Fraud Percentage when dist2 is missing")
+print(fraud_percentage)
 
+#Fraud percentage when dist2 is present
+
+present_dist2  = class_data[
+    class_data["dist2_missing"]==False
+]
+
+print("\n Fraud percentage when dist2 is present:")
+print(present_dist2["isFraud"].mean()*100)
 
 
 
